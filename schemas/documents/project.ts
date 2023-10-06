@@ -17,6 +17,24 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'translatedString1',
+      title: 'Translated String 1',
+      type: 'internationalizedArrayString',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'translatedString2',
+      title: 'Translated String 2',
+      type: 'internationalizedArrayString',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'translatedText',
+      title: 'Translated Text',
+      type: 'internationalizedArrayText',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',

@@ -20,6 +20,7 @@ import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
 import home from 'schemas/singletons/home'
 import settings from 'schemas/singletons/settings'
+import { internationalizedArray } from 'sanity-plugin-internationalized-array'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -89,6 +90,16 @@ export default defineConfig({
 
         return null
       },
+    }),
+    internationalizedArray({
+      languages: [
+        {id: 'en', title: 'English'},
+        {id: 'fr', title: 'French'},
+        {id: 'de', title: 'German'}
+      ],
+      // Remove `defaultLanguages` option to fix issues
+      defaultLanguages: ['en'],
+      fieldTypes: ['string', 'text'],
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
     singletonPlugin([home.name, settings.name]),
